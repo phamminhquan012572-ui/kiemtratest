@@ -2,36 +2,43 @@
 
 Thư mục này chứa lời giải cho 5 câu hỏi lập trình Python, mỗi câu được lưu trong một file riêng.
 
-## Danh sách bài giải
+## Danh sách file
 
-| File | Nội dung chính |
+| File | Nội dung |
 |---|---|
-| `cau1.py` | Xử lý số nguyên: đếm chữ số lẻ và tính tổng S |
-| `cau2.py` | Xử lý chuỗi: đếm chữ hoa, kiểm tra đối xứng và tính tổng chữ số |
-| `cau3.py` | Danh sách số nguyên: tính tổng số dương chẵn và đếm số lần xuất hiện |
-| `cau4.py` | Quản lý thông tin sách bằng từ điển |
-| `cau5.py` | Xây dựng lớp `DienThoai` và tạo hai đối tượng mẫu |
+| `cau1.py` | Đếm chữ số lẻ và tính tổng S |
+| `cau2.py` | Đếm chữ hoa, kiểm tra chuỗi đối xứng, tính tổng chữ số |
+| `cau3.py` | Xử lý danh sách số nguyên |
+| `cau4.py` | Quản lý sách bằng từ điển |
+| `cau5.py` | Lớp `DienThoai` và hai đối tượng mẫu |
+| `kiemtra_tudong.py` | Chạy các ca kiểm thử và tính điểm tự động |
 
-## Cách chạy trên VS Code
+## Chạy từng câu
 
-1. Cài đặt Python và mở thư mục repository bằng VS Code.
-2. Mở Terminal trong VS Code.
-3. Di chuyển vào thư mục `đề thi`:
+Mở Terminal tại thư mục này và chạy, ví dụ:
 
-   ```bash
-   cd "đề thi"
-   ```
+```bash
+python cau1.py
+```
 
-4. Chạy câu cần làm, ví dụ:
+Thay `cau1.py` bằng tên file câu cần chạy.
 
-   ```bash
-   python cau1.py
-   ```
+## Chạy kiểm tra tự động
 
-   Thay `cau1.py` bằng `cau2.py`, `cau3.py`, `cau4.py` hoặc `cau5.py` để chạy câu khác.
+Không cần cài thêm thư viện. Chạy lệnh:
+
+```bash
+python kiemtra_tudong.py
+```
+
+Chương trình sẽ tự động:
+- Chạy từng file bài làm với dữ liệu kiểm thử mẫu.
+- So sánh kết quả đầu ra với kết quả mong đợi.
+- Hiển thị trạng thái ĐẠT hoặc CHƯA ĐẠT cho từng test.
+- Tính điểm từng câu và tổng điểm trên thang 10.
 
 ## Lưu ý
 
-- Các chương trình được viết độc lập, chạy từng file riêng.
-- Các câu cần nhập dữ liệu sẽ yêu cầu nhập trực tiếp trong Terminal.
-- Câu 5 sử dụng dữ liệu mẫu của hai điện thoại DT01 và DT02.
+- Các bài giải được chạy độc lập.
+- Kiểm thử tự động hiện tại sử dụng các ca kiểm thử mẫu được xây dựng theo chức năng của 5 file trong thư mục.
+- Điểm tự động là kết quả kiểm tra theo các ca mẫu, không thay thế việc đối chiếu định dạng đầu ra và toàn bộ yêu cầu trong đề thi gốc.
