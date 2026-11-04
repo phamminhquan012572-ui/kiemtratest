@@ -132,14 +132,16 @@ TESTS = {
 
 
 def chuan_hoa(text):
-    # Bo dau tieng Viet va khong phan biet chu hoa/chu thuong
+    # Bo dau tieng Viet, xu ly rieng chu d va khong phan biet hoa/thuong
     text = unicodedata.normalize("NFD", text)
+    text = text.replace("đ", "d").replace("Đ", "D")
+
     text = "".join(
         ky_tu for ky_tu in text
         if unicodedata.category(ky_tu) != "Mn"
     )
-    return text.casefold()
 
+    return text.casefold()
 
 def run_case(file_path, input_data):
     try:
