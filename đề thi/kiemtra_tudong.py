@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+import unicodedata
 
 # Thu muc chua cac file cau1.py den cau5.py
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -130,6 +131,16 @@ TESTS = {
 }
 
 
+def chuan_hoa(text):
+    # Bo dau tieng Viet va khong phan biet chu hoa/chu thuong
+    text = unicodedata.normalize("NFD", text)
+    text = "".join(
+        ky_tu for ky_tu in text
+        if unicodedata.category(ky_tu) != "Mn"
+    )
+    return text.casefold()
+
+
 def run_case(file_path, input_data):
     try:
         env = os.environ.copy()
@@ -180,10 +191,10 @@ def grade():
         for index, case in enumerate(cau["cases"], 1):
             code, output, error = run_case(path, case["input"])
 
-            output_lower = output.casefold()
+            output_lower = chuan_hoa(output)
             missing = [
                 item for item in case["expected"]
-                if item.casefold() not in output_lower
+                if chuan_hoa(item) not in output_lower
             ]
 
             passed = code == 0 and len(missing) == 0
